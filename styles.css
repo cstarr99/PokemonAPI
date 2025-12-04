@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: rgba(37, 70, 104, 0.001);
+  display: flex;
+  justify-content: center;
+}
+
+#search-input {
+  min-width: 200px;
+}
+
+.search-btn {
+  height: 20px;
+}
