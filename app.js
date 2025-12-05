@@ -4,10 +4,13 @@ const pokemonName = document.querySelector(".pokemon-name");
 const pokemonType = document.querySelector(".pokemon-type");
 const pokemonPicture = document.querySelector(".pokemon-picture");
 const bodyElement = document.body;
+const data = document.querySelector(".data");
 
 searchBtn.addEventListener("click", async (e) => {
   e.preventDefault();
-  clearData();
+  clearData(pokemonName);
+  clearData(pokemonType);
+  clearData(pokemonPicture);
   const userInput = searchInput.value;
   const rawPokemonData = await getPokemonAPI(userInput);
   changeColor(userInput, rawPokemonData);
@@ -64,8 +67,15 @@ async function getPokemonPicture(rawPokemonData) {
   img.classList.add("pokemon-added-data");
 }
 
-function clearData() {
-  //clear previous data
+function clearData(itemName) {
+  while (itemName.children[0] != null || undefined) {
+    itemName.removeChild(itemName.children[0]);
+  }
 }
 
 function listErrors() {}
+
+//TODO:
+//list all errors on screen
+//clean up CSS
+//make README
